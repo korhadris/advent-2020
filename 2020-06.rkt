@@ -23,5 +23,7 @@
 
 (module+ main
   (define data (call-with-input-file "2020-06.data" get-data))
-  (for/sum ([group (in-list data)]) (unique-responses group))
-  (for/sum ([group (in-list data)]) (common-responses group)))
+  (display (format "~a unique responses\n"
+                   (for/sum ([group (in-list data)]) (unique-responses group))))
+  (display (format "~a common repsonses\n"
+                   (for/sum ([group (in-list data)]) (common-responses group)))))
